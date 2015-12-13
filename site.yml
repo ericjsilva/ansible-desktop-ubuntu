@@ -14,7 +14,7 @@
     - common       # List of essential packages
     - apache
     - php
-    - mariadb
+#    - mariadb
     - mysql
     - phpmyadmin
 #    - mongodb
