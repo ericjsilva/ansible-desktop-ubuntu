@@ -79,7 +79,6 @@ And you have to edit the file `site.yml` and comment line the list roles. For ex
 
   roles:
     - common    # List of essential packages
-    - vim       # Configuration for vim
     - apache
     - php
     - mariadb

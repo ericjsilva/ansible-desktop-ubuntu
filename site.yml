@@ -1,7 +1,6 @@
 ##
 # Ansible playbook for setting up a LAMP development server on Ubuntu 14.04.
 #
-
 ---
 
 - hosts: local
@@ -13,7 +12,6 @@
 
   roles:
     - common       # List of essential packages
-    - vim          # Configuration for vim
     - apache
     - php
     - mariadb
