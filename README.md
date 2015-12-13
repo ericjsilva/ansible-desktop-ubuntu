@@ -14,7 +14,7 @@ Run
 If you want to change anything :
 
 ```shell
-$ curl -L http://git.karbouin.net/kevin.arbouin/desktop-home/blob/master/install.sh | sh
+$ curl -L https://raw.githubusercontent.com/ericjsilva/ansible-desktop-ubuntu/master/install.sh | sh
 ```
 
 And enter your password.
@@ -55,9 +55,10 @@ This project will install the following packages:
 Custom installation
 -------------------
 
-if you want to customize the installation to suit your needs, you have to clone this repository :
+if you want to customize the installation to suit your needs, you have to clone this repository:
 
-    $ git clone git@github.com:lesmyrmidons/ansible-desktop-ubuntu.git
+    `$ git clone git@github.com:ericjsilva/ansible-desktop-ubuntu.git`  OR
+    `$ git clone https://github.com/ericjsilva/ansible-desktop-ubuntu.git`
 
 And you have to edit the file `site.yml` and comment line the list roles. For example :
 
@@ -68,7 +69,7 @@ And you have to edit the file `site.yml` and comment line the list roles. For ex
 
 ---
 - hosts: local
-  user: lesmyrmidons
+  user: bsa_user
   sudo: yes
 
   vars_files:
@@ -77,17 +78,14 @@ And you have to edit the file `site.yml` and comment line the list roles. For ex
   roles:
     - common    # List of essential packages
     - vim       # Configuration for vim
-    - pinta     # Gimp little
-    - latex     # Latex and ide texmaker
-    - nvidia    # Drivers owner
-    - adst      # Application for series https://github.com/lesmyrmidons/AdstSF2
-#    - hhvm
-    - web
-#    - mongodb
-#    - composer
+    - apache
+    - php
+    - mariadb
+    - mysql
+    - phpadmin
+    - mongodb
+    - composer
     - nodejs
-    - dotfile   # My dotfile (config : git, zsh, bash, tig, ...)
-    - gnome-shell
 ```
 
 Install Ansible :

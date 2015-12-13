@@ -1,0 +1,11 @@
+---
+# List handlers for MariaDB
+
+- name: Start mariadb
+  service: name=mysql state=started
+
+- name: Stop mariadb
+  service: name=mysql state=stoped
+
+- name: Restart mariadb
+  service: name=mysql state=restarted

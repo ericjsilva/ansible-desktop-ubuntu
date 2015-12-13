@@ -5,7 +5,7 @@
 ---
 
 - hosts: local
-  user: lesmyrmidons
+  user: eaglescout
   sudo: yes
 
   vars_files:
@@ -14,17 +14,12 @@
   roles:
     - common       # List of essential packages
     - vim          # Configuration for vim
-    - pinta        # Gimp little
-    - latex        # Latex and ide texmaker
-#    - nvidia       # Drivers owner
-    - adst         # Application for series https://github.com/lesmyrmidons/AdstSF2
-#    - hhvm         # Fork PHP
-    - web
-    - mongodb
+    - apache
+    - php
+    - mariadb
+    - mysql
+    - phpadmin
+#    - mongodb
     - composer
     - nodejs
-    - dotfile      # My dotfile (config : git, zsh, bash, tig, ...)
-    - conky
-    - gnome-shell  # Extension and custom template
     - synapse      # Launcher apps.
-#    - gnome-boxes  # Virtual machine
