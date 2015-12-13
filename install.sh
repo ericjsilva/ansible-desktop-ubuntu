@@ -21,5 +21,5 @@ cd $HOME/.config-desktop-home
 ansible-playbook -i hosts site.yml -c local -K
 
 # Install Sublime Text
-ansible-galaxy install -r requirements.txt
+ansible-galaxy install -r requirements.yml
 
