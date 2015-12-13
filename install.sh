@@ -1,7 +1,6 @@
 CURRENT=`pwd`
 
-if [ ! -d ~/.config-desktop-home]
-then
+if [ ! -d ~/.config-desktop-home ]; then
     echo "\033[0;32m Installing python.......\033[0m"
     sudo apt-get install -y -qq python python-pip git git-core openssh-server
 
