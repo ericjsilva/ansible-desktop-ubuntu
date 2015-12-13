@@ -1,21 +1,21 @@
 ---
-- name: Add ppa Repository
+- name: PHP5 | Add ppa Repository
   sudo: yes
   apt_repository: repo=ppa:ondrej/{{ php.ppa }}
 
-- name: Update apt
+- name: PHP5 | Update apt
   sudo: yes
   apt: update_cache=yes
 
-- name: Install php5
+- name: PHP5 | Install php5
   sudo: yes
   apt: pkg=php5 state=latest
 
-- name: Install php5-fpm
+- name: PHP5 | Install php5-fpm
   sudo: yes
   apt: pkg=php5-fpm state=latest
 
-- name: Install PHP Packages
+- name: PHP5 | Install PHP Packages
   sudo: yes
   apt: pkg={{ item }} state=latest
   with_items: php.packages
@@ -35,10 +35,10 @@
 - name: PHP5 | PHPDev | Update pear packages
   command: pear upgrade-all
 
-- name: PHP | PHPDev | Set pear auto-discover
+- name: PHP5 | PHPDev | Set pear auto-discover
   command: pear config-set auto_discover 1
 
-- name: PHP | PHPDev | Pear install the PHP QA Toolchain
+- name: PHP5 | PHPDev | Pear install the PHP QA Toolchain
   command: pear install pear.phpqatools.org/phpqatools creates=/usr/bin/phpunit
   # this fails often (dns problems, pear problems, etc. So just ignore the errors and continue.)
   ignore_errors: true
