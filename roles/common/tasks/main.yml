@@ -21,8 +21,8 @@
 - name: Linux | Update cache
   apt: update_cache=yes cache_valid_time=3600
 
-- name: Linux | Upgrade
-  apt: upgrade=dist
+#- name: Linux | Upgrade
+#  apt: upgrade=dist
 
 - name: Package | Install lists packages
   apt: pkg={{ item }} state=installed
@@ -53,21 +53,3 @@
     - nfs-kernel-server
     - nfs-common
     - pwgen
-
-- name: Java Oracle | Add repository
-  apt_repository: repo='ppa:webupd8team/java' state=present update_cache=yes
-
-- name: Java Oracle | Automatically select the Oracle License
-  shell: echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
-
-- name: Java Oracle | Install version 1.7.x
-  apt: name=oracle-java7-installer state=installed force=yes
-
-- name: Virtualbox | Add repository
-  apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian saucy contrib' state=present
-
-- name: Virtualbox | Add key
-  apt_key: url='http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc' state=present
-
-- name: Virtualbox | Install Virtualbox v4.3.x
-  apt: name=virtualbox-4.3 state=installed force=yes

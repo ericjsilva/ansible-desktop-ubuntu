@@ -28,16 +28,27 @@ This project will install the following packages:
     * bash-completion
     * openssh-server
     * vim
-    * git, git-core, git-flow, git-email, git-extras, git-svn
+    * git
+    * git-core
+    * git-flow
+    * git-email
+    * git-extras
+    * git-svn
     * zsh
     * curl
     * wget
     * htop
     * ack-grep
+    * ccze
     * tmux
+    * terminator
     * tig
-    * unzip, tar, gzip, bzip2
-    * nfs-kernel-server, nfs-common
+    * unzip
+    * tar
+    * gzip
+    * bzip2
+    * nfs-kernel-server
+    * nfs-common
     * pwgen
     * LAMP (MariaDB), pear, phpmyadmin, Composer
     * MongoDB
