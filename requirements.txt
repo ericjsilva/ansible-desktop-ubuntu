@@ -1,3 +1,5 @@
+---
+
 # Install Sublime Text
- - src: jdauphant.sublimetext
+- src: jdauphant.sublimetext
 
