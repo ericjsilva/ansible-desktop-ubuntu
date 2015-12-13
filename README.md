@@ -34,24 +34,15 @@ This project will install the following packages:
     * wget
     * htop
     * ack-grep
-    * ccze
     * tmux
-    * terminator
     * tig
     * unzip, tar, gzip, bzip2
     * nfs-kernel-server, nfs-common
     * pwgen
-    * Java 1.7.x (Oracle)
-    * Virtualbox (Oracle)
     * LAMP (MariaDB), pear, phpmyadmin, Composer
     * MongoDB
-    * Drivers NVIDIA
     * nodejs
-    * Latex, texmaker
-    * Pinta (equivalent Paint.NET for Windows)
-    * ADST (https://github.com/lesmyrmidons/AdstSF2)
-    * HHVM
-
+    
 Custom installation
 -------------------
 
