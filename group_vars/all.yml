@@ -13,9 +13,6 @@ common:
 
 apache:
   httpd_port: 80
-  domain: stem.local
-  project_path: /home/eaglescout/dev/stem
-  directory_index: app.php
   docroot: /var/www/eaglescout
   servername: localhost
 

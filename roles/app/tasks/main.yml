@@ -1,0 +1,6 @@
+---
+- name: APP | Creates project directory
+  file: path=~/eaglescout state=directory
+
+- name: APP | Create symlink
+  file: src=~/eaglescout dest={{ apache.docroot }} state=link
