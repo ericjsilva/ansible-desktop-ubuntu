@@ -6,10 +6,10 @@ url_apt_key: "http://keyserver.ubuntu.com/pks/lookup?op=get&search="
 user: eaglescout
 
 common:
-    install: '1'
-    timezone: UTC
-    locale: en_US.UTF-8
-    ntpserver: 'ntp.ubuntu.com'
+  install: '1'
+  timezone: UTC
+  locale: en_US.UTF-8
+  ntpserver: 'ntp.ubuntu.com'
 
 apache:
   httpd_port: 80
