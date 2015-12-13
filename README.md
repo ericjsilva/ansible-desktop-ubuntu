@@ -1,26 +1,22 @@
-Automated Desktop Setup
-=======================
+# Automated Desktop Setup
 
-Requirements
------------
+## Requirements
 
-    * curl,
-    * git,
-    * git-core.
+    * curl
+    * git
+    * git-core
 
-Run
----
+## Run
 
-If you want to change anything :
+If you want to change anything:
 
 ```shell
 $ curl -L https://raw.githubusercontent.com/ericjsilva/ansible-desktop-ubuntu/master/install.sh | sh
 ```
 
-And enter your password.
+And enter your password _(if prompted)_.
 
-Default installation
---------------------
+## Default Installation
 
 This project will install the following packages:
 
@@ -54,15 +50,14 @@ This project will install the following packages:
     * MongoDB
     * nodejs
     
-Custom installation
--------------------
+## Custom Installation
 
 if you want to customize the installation to suit your needs, you have to clone this repository:
 
     `$ git clone git@github.com:ericjsilva/ansible-desktop-ubuntu.git`  OR
     `$ git clone https://github.com/ericjsilva/ansible-desktop-ubuntu.git`
 
-And you have to edit the file `site.yml` and comment line the list roles. For example :
+And you have to edit the file `site.yml` and comment line the list roles. For example:
 
 ```yml
 ##
@@ -89,18 +84,17 @@ And you have to edit the file `site.yml` and comment line the list roles. For ex
     - nodejs
 ```
 
-Install Ansible :
+Install Ansible:
 
     $ sudo apt-get install -y -qq python python-pip
     $ sudo pip install ansible
 
-And execute command :
+And execute command:
 
     $ ansible-playbook -i hosts site.yml -c local -K
 
 You can also contribute to add new roles or improve existing.
 
-License
--------
+## License
 
 MIT / BSD

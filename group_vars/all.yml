@@ -15,7 +15,7 @@ apache:
   docroot: /var/www/eaglescout
   servername: localhost
 
-php5:
+php:
   php_date_timezone: 'America/New_York'
   install: '1'
   ppa: php5-5.6
