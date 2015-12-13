@@ -73,7 +73,7 @@ And you have to edit the file `site.yml` and comment line the list roles. For ex
     - php
     - mariadb
     - mysql
-    - phpadmin
+    - phpmyadmin
     - mongodb
     - composer
     - nodejs
