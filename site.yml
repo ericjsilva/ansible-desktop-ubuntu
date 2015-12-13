@@ -20,4 +20,3 @@
 #    - mongodb
     - composer
     - nodejs
-    - synapse      # Launcher apps.
