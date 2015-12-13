@@ -5,6 +5,18 @@
 - name: Create en_US.UTF-8 locale
   locale_gen: name=en_US.UTF-8 state=present
 
+- name: Configure the timezone
+  sudo: yes
+  template: src=timezone.tpl dest=/etc/timezone
+
+- name: More Configure the timezone
+  sudo: yes
+  file: src=/usr/share/zoneinfo/{{common.timezone}} dest=/etc/localtime state=link force=yes backup=yes
+
+- name: Set default system language pack
+  shell: locale-gen {{common.locale}}
+  sudo: yes
+
 - name: NTP | Install
   apt: name=ntp state=present
   tags: ntp
@@ -19,12 +31,15 @@
   tags: ntp
 
 - name: Linux | Update cache
-  apt: update_cache=yes cache_valid_time=3600
+  sudo: yes
+  apt: update_cache=yes cache_valid_time={{ cache_valid_time }}
+
 
 #- name: Linux | Upgrade
 #  apt: upgrade=dist
 
 - name: Package | Install lists packages
+  sudo: yes
   apt: pkg={{ item }} state=installed
   with_items:
     - aptitude
@@ -53,3 +68,4 @@
     - nfs-kernel-server
     - nfs-common
     - pwgen
+    - imagemagick

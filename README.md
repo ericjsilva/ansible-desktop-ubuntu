@@ -46,6 +46,7 @@ This project will install the following packages:
     * nfs-kernel-server
     * nfs-common
     * pwgen
+    * imagemagick
     * LAMP (MariaDB), pear, phpmyadmin, Composer
     * MongoDB
     * nodejs

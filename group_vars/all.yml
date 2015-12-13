@@ -3,9 +3,13 @@
 
 url_apt_key: "http://keyserver.ubuntu.com/pks/lookup?op=get&search="
 
-ntpserver: 'ntp.ubuntu.com'
-
 user: eaglescout
+
+common:
+    install: '1'
+    timezone: UTC
+    locale: en_US.UTF-8
+    ntpserver: 'ntp.ubuntu.com'
 
 apache:
   httpd_port: 80
