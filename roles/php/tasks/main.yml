@@ -20,11 +20,11 @@
   apt: pkg={{ item }} state=latest
   with_items: php.packages
   when: php.packages is defined
-  notify: Restart apache
+  notify: restart apache
 
 - name: PHP5 | Configuration /etc/php5/apache2/php.ini
   template: src=etc-php5-apache2-php-ini.j2 dest=/etc/php5/apache2/php.ini mode=0644
-  notify: Restart apache
+  notify: restart apache
 
 - name: PHP5 | Configuration /etc/php5/cli/php.ini
   template: src=etc-php5-cli-php-ini.j2 dest=/etc/php5/cli/php.ini mode=0644

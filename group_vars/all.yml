@@ -23,12 +23,12 @@ php:
 
 mariadb:
   current_password: ''
-  root_password: dev
+  root_password: pass@word1
 
 mysql:
     install: '1'
     root_password: pass@word1
-    database: live_noac2015
-    user: live_noac2015
-    password: GoodUrner1915
+    database: eaglescout
+    user: eaglescout
+    password: eaglescout1
     dump: ''
