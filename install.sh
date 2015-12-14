@@ -24,3 +24,6 @@ echo "\033[0;32m Installing additional software.......\033[0m"
 # Install Sublime Text
 sudo ansible-galaxy install -r requirements.yml
 
+# set symlink to development directory
+mkdir $HOME/php-www
+sudo ln -s $HOME/php-www /var/www/eaglescout
