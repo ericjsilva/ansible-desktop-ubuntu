@@ -9,14 +9,14 @@
         AllowOverride All
         Options -Indexes +Includes +FollowSymLinks +Multiviews
         Require all granted
-        RewriteEngine On
-        RewriteBase /
-        RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-        RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
-        RewriteRule ^index\.php$ - [L]
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteCond %{REQUEST_FILENAME} !-d
-        RewriteRule . /index.php [L]
+        #RewriteEngine On
+        #RewriteBase /
+        #RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+        #RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+        #RewriteRule ^index\.php$ - [L]
+        #RewriteCond %{REQUEST_FILENAME} !-f
+        #RewriteCond %{REQUEST_FILENAME} !-d
+        #RewriteRule . /index.php [L]
     </Directory>
 
     ErrorLog /var/log/apache2/error.log
