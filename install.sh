@@ -1,3 +1,9 @@
+# We wrap this whole script in a function, so that we won't execute
+# until the entire script is downloaded.
+# That's good because it prevents our output overlapping with curl's.
+# It also means that we can't run a partially downloaded script.
+# We don't indent because it would be really confusing with the heredocs.
+run_it () {
 CURRENT=`pwd`
 
 if [ ! -d ~/.config-desktop-home ]; then
@@ -35,3 +41,6 @@ curl https://install.meteor.com/ | sh
 # set symlink to development directory
 mkdir $HOME/php-www
 sudo ln -s $HOME/php-www /var/www/eaglescout
+}
+
+run_it
