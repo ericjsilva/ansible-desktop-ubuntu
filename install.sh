@@ -4,6 +4,9 @@ if [ ! -d ~/.config-desktop-home ]; then
     echo "\033[0;32m Updating apt-get.......\033[0m"
     sudo apt-get update
 
+    echo "\033[0;32m Enable universe apt-get repo.......\033[0m"
+    sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
+
     echo "\033[0;32m Installing python, git, and open-ssh.......\033[0m"
     sudo apt-get install -y -qq python python-pip git git-core openssh-server
 
