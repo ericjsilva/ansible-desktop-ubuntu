@@ -25,7 +25,12 @@ ansible-playbook -i hosts site.yml -c local -K
 
 echo "\033[0;32m Installing additional software.......\033[0m"
 # Install Sublime Text
-sudo ansible-galaxy install -r requirements.yml
+#sudo ansible-galaxy install -r requirements.yml
+cd ~
+wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3083_amd64.deb
+
+# Install Meteor
+curl https://install.meteor.com/ | sh
 
 # set symlink to development directory
 mkdir $HOME/php-www
