@@ -50,13 +50,13 @@ This project will install the following packages:
     * LAMP (MariaDB), pear, phpmyadmin, Composer
     * MongoDB
     * nodejs
-    
+
 ## Custom Installation
 
 if you want to customize the installation to suit your needs, you have to clone this repository:
 
-    `$ git clone git@github.com:ericjsilva/ansible-desktop-ubuntu.git`  OR
-    `$ git clone https://github.com/ericjsilva/ansible-desktop-ubuntu.git`
+`$ git clone git@github.com:ericjsilva/ansible-desktop-ubuntu.git`  OR
+`$ git clone https://github.com/ericjsilva/ansible-desktop-ubuntu.git`
 
 And you have to edit the file `site.yml` and comment line the list roles. For example:
 
