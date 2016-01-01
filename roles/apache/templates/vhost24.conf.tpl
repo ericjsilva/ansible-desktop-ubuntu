@@ -7,7 +7,8 @@
 
     <Directory {{ apache.docroot }}>
         AllowOverride All
-        Options -Indexes +Includes +FollowSymLinks +Multiviews
+        #Options -Indexes +Includes +FollowSymLinks +Multiviews
+        Options All
         Require all granted
         #RewriteEngine On
         #RewriteBase /
