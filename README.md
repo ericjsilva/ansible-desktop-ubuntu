@@ -98,4 +98,4 @@ You can also contribute to add new roles or improve existing.
 
 ## License
 
-MIT / BSD
+MIT. See LICENSE.
