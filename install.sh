@@ -41,6 +41,24 @@ curl https://install.meteor.com/ | sh
 # set symlink to development directory
 mkdir $HOME/php-www
 sudo ln -s $HOME/php-www /var/www/eaglescout
+
+cd $HOME/php-www
+git clone https://github.com/ericjsilva/programming-mb-php.git ./
+
+cd ~
+if [ ! -d ~/python ]; then
+    mkdir python
+fi
+cd python
+git clone https://github.com/ericjsilva/programming-mb-python.git ./
+cd ~
+if [ ! -d ~/js ]; then
+    mkdir js
+fi
+cd js
+git clone https://github.com/ericjsilva/programming-mb-javascript.git ./
+
+cd ~
 }
 
 run_it
