@@ -13,7 +13,8 @@
   roles:
     - common       # List of essential packages
     - apache
-    - php
+#    - php
+    - php7
 #    - mariadb
     - mysql
     - phpmyadmin

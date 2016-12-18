@@ -17,10 +17,13 @@ if [ ! -d ~/.config-desktop-home ]; then
     sudo apt-get install -y -qq python python-pip git git-core openssh-server
 
     echo "\033[0;32m Updating pip.......\033[0m"
-    pip install --upgrade pip
+    sudo -H pip install --upgrade pip
+
+    echo "\033[0;32m Installing ansible dependencies.......\033[0m"
+    sudo apt-get install build-essential libssl-dev libffi-dev python-dev
 
     echo "\033[0;32m Installing ansible.......\033[0m"
-    pip install ansible
+    sudo -H pip install ansible
 
     echo "\033[0;32m Clone the ansible installation config.......\033[0m"
     sudo -u `whoami` -H git clone https://github.com/ericjsilva/ansible-desktop-ubuntu.git $HOME/.config-desktop-home
@@ -39,7 +42,7 @@ wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb
 sudo dpkg -i sublime-text_build-3126_amd64.deb
 
 # Install Meteor
-curl https://install.meteor.com/ | sh
+# curl https://install.meteor.com/ | sh
 
 # set symlink to development directory
 mkdir $HOME/php-www
