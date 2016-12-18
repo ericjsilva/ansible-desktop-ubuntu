@@ -15,6 +15,8 @@
     - apache
 #    - php
     - php7
+    - php7-pecl
+    - php7-mysql
 #    - mariadb
     - mysql
     - phpmyadmin
