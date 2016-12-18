@@ -11,6 +11,13 @@ common:
   locale: en_US.UTF-8
   ntpserver: 'ntp.ubuntu.com'
 
+composer_path: /usr/bin/composer
+composer_home_path: "/home/{{ user }}/.composer"
+composer_home_owner: "{{ user }}"
+composer_home_group: "{{ user }}"
+composer_global_packages:
+  - { name: hirak/prestissimo, release: '^0.3' }
+
 apache:
   httpd_port: 80
   docroot: /var/www/eaglescout
@@ -38,3 +45,10 @@ mysql:
     user: eaglescout
     password: eaglescout1
     dump: ''
+
+# Node.js configuration (if enabled above).
+# Valid examples: "0.10", "0.12", "4.x", "5.x".
+nodejs_version: "0.12"
+nodejs_npm_global_packages: []
+nodejs_install_npm_user: "{{ user }}"
+npm_config_prefix: "/home/{{ user }}/.npm-global"
