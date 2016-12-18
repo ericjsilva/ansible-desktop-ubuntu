@@ -1,5 +1,14 @@
 # Automated Desktop Setup
 
+This is an ansible script designed to automate the installation of an Ubuntu desktop complete with the basic tools and services needed to develop applications in PHP, Python, and JavaScript.
+
+## Compatibility
+
+This script has been tested on the following Ubuntu versions:
+
+    * 14.04 LTS
+    * 16.04 LTS
+
 ## Requirements
 
     * curl
