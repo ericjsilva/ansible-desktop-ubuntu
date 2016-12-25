@@ -20,7 +20,7 @@ if [ ! -d ~/.config-desktop-home ]; then
     sudo -H pip install --upgrade pip
 
     echo "\033[0;32m Installing ansible dependencies.......\033[0m"
-    sudo apt-get install build-essential libssl-dev libffi-dev python-dev
+    sudo apt-get install -y -qq build-essential libssl-dev libffi-dev python-dev
 
     echo "\033[0;32m Installing ansible.......\033[0m"
     sudo -H pip install ansible
