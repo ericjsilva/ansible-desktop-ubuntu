@@ -40,6 +40,7 @@ mysql:
     dump: ''
 
 # Enable PHP 7 on Apache
+php_packages: [php7.0-mcrypt, libapache2-mod-php7.0]
 php_enable_webserver: true
 
 # Node.js configuration (if enabled above).
