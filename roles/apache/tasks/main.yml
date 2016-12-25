@@ -13,7 +13,6 @@
     - expires
     - filter
     - ssl
-    - php7.0
 
 - shell: apache2 -v
   register: apache_version
