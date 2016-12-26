@@ -44,25 +44,39 @@ sudo -H dpkg -i sublime-text_build-3126_amd64.deb
 # Install Meteor
 # curl https://install.meteor.com/ | sh
 
-# set symlink to development directory
+# set symlink to php development directory
 mkdir $HOME/php-www
 sudo ln -s $HOME/php-www /var/www/eaglescout
-
+# checkout the PHP development project
 cd $HOME/php-www
 git clone https://github.com/ericjsilva/programming-mb-php.git ./
 
 cd ~
-if [ ! -d ~/python ]; then
-    mkdir python
+# checkout the Python development project
+if [ ! -d $HOME/python ]; then
+    mkdir $HOME/python
 fi
 cd python
 git clone https://github.com/ericjsilva/programming-mb-python.git ./
 cd ~
-if [ ! -d ~/js ]; then
-    mkdir js
+
+# checkout the React/Meteor development project
+if [ ! -d $HOME/js ]; then
+    mkdir $HOME/js
 fi
 cd js
 git clone https://github.com/ericjsilva/programming-mb-javascript.git ./
+
+cd ~
+
+# checkout the VueJS development project
+if [ ! -d $HOME/vuejs ]; then
+    mkdir $HOME/vuejs
+fi
+cd vuejs
+git clone https://github.com/ericjsilva/programming-mb-javascript-vuejs.git ./
+# set symlink to vuejs development directory
+sudo ln -s $HOME/vuejs /var/www/eaglescout/vuejs
 
 cd ~
 }
