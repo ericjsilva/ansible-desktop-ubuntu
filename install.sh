@@ -39,7 +39,8 @@ echo "\033[0;32m Installing additional software.......\033[0m"
 # Install Sublime Text
 cd ~
 wget https://download.sublimetext.com/sublime-text_build-3126_i386.deb
-sudo -H dpkg -i sublime-text_build-3126_amd64.deb
+sudo -H dpkg -i sublime-text_build-3126_i386.deb
+sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/sublime
 
 # Install Meteor
 # curl https://install.meteor.com/ | sh
