@@ -38,7 +38,7 @@ ansible-playbook -i hosts site.yml -c local -K
 echo "\033[0;32m Installing additional software.......\033[0m"
 # Install Sublime Text
 cd ~
-wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb
+wget https://download.sublimetext.com/sublime-text_build-3126_i386.deb
 sudo -H dpkg -i sublime-text_build-3126_amd64.deb
 
 # Install Meteor
@@ -59,6 +59,8 @@ fi
 cd python
 git clone https://github.com/ericjsilva/programming-mb-python.git ./
 cd ~
+# Install pygame
+sudo pip install pygame
 
 # checkout the React/Meteor development project
 if [ ! -d $HOME/js ]; then
