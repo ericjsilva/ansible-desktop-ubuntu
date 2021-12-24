@@ -25,8 +25,8 @@ apache_vhosts:
     documentroot: "/var/www/eaglescout"
     extra_parameters: |
       ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/eaglescout"
-apache_global_vhost_settings: |
-  DirectoryIndex index.php index.html
+apache_allow_override: "All"
+apache_options: "Options +Indexes +FollowSymLinks"
 
 # PHP Vars
 php_webserver_daemon: apache2

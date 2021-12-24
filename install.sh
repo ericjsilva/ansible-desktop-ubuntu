@@ -81,6 +81,10 @@ echo "\033[0;32m Installing PHP projects.......\033[0m"
 if [ ! -d $HOME/php ]; then
     mkdir $HOME/php
 fi
+# Create the eaglescout directory if it doesn't exist
+if [ ! -d /var/www/eaglescout ]; then
+    mkdir /var/www/eaglescout
+fi
 sudo ln -s $HOME/php /var/www/eaglescout/php
 # Checkout the PHP development project
 cd $HOME/php
