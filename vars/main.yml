@@ -19,11 +19,14 @@ common:
 
 # Apache Vars
 apache_listen_port: 80
+apache_remove_default_vhost: false
 apache_vhosts:
   - servername: "localhost"
     documentroot: "/var/www/eaglescout"
     extra_parameters: |
       ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/eaglescout"
+apache_global_vhost_settings: |
+  DirectoryIndex index.php index.html
 
 # PHP Vars
 php_webserver_daemon: apache2
@@ -68,6 +71,9 @@ mysql_packages:
   - mysql-server
   - mysql-client
   - python3-mysqldb
+
+phpmyadmin_mysql_user: "{{mysql_root_username}}"
+phpmyadmin_mysql_password: "{{mysql_root_password}}"
 
 # Node.js Vars
 nodejs_version: "14.x"

@@ -79,11 +79,12 @@ apm install open-in-browser
 
 
 echo "\033[0;32m Installing PHP projects.......\033[0m"
-# Set symlink to PHP development directory
-mkdir $HOME/php-www
-sudo ln -s $HOME/php-www /var/www/eaglescout
+if [ ! -d $HOME/php ]; then
+    mkdir $HOME/php
+fi
+sudo ln -s $HOME/php /var/www/eaglescout/php
 # Checkout the PHP development project
-cd $HOME/php-www
+cd $HOME/php
 git clone https://github.com/ericjsilva/programming-mb-php.git ./
 cd ~
 
@@ -92,7 +93,7 @@ echo "\033[0;32m Installing Python projects.......\033[0m"
 if [ ! -d $HOME/python ]; then
     mkdir $HOME/python
 fi
-cd python
+cd $HOME/python
 git clone https://github.com/ericjsilva/programming-mb-python.git ./
 # Install 
 echo "\033[0;32m Installing Python project dependencies.......\033[0m"
@@ -104,10 +105,9 @@ echo "\033[0;32m Installing JavaScript projects.......\033[0m"
 if [ ! -d $HOME/js ]; then
     mkdir $HOME/js
 fi
-cd js
+sudo ln -s $HOME/js /var/www/eaglescout/js
+cd $HOME/js
 git clone https://github.com/ericjsilva/programming-mb-javascript-vuejs.git ./
-# Set symlink to vuejs development directory
-sudo ln -s $HOME/js /var/www/eaglescout/js-labs
 
 cd ~
 echo "\033[0;32m Installation complete.\033[0m"
