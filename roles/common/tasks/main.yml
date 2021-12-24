@@ -2,8 +2,8 @@
 # This playbook contains common tasks that will be run.
 - name: Create en_US.UTF-8 locale
   locale_gen: 
-    name=en_US.UTF-8
-    state=present
+    name: en_US.UTF-8
+    state: present
 
 - name: Set default system language pack
   shell: 
@@ -13,39 +13,38 @@
 - name: Linux | Update cache
   become: yes
   apt: 
-    update_cache=yes
-    cache_valid_time={{ cache_valid_time }}
+    update_cache: yes
+    cache_valid_time: {{ cache_valid_time }}
 
 - name: Package | Install lists packages
   become: yes
-  apt: 
-    pkg={{ item }} 
-    state=installed
-  with_items:
-    - aptitude
-    - bash-completion
-    - openssh-server
-    - vim
-    - git
-    - git-core
-    - git-flow
-    - git-email
-    - git-extras
-    - git-svn
-    - zsh
-    - curl
-    - wget
-    - htop
-    - ack-grep
-    - ccze
-    - tmux
-    - terminator
-    - tig
-    - unzip
-    - tar
-    - gzip
-    - bzip2
-    - nfs-kernel-server
-    - nfs-common
-    - pwgen
-    - imagemagick
+  apt:   
+    state: installed
+    name:
+      - aptitude
+      - bash-completion
+      - openssh-server
+      - vim
+      - git
+      - git-core
+      - git-flow
+      - git-email
+      - git-extras
+      - git-svn
+      - zsh
+      - curl
+      - wget
+      - htop
+      - ack-grep
+      - ccze
+      - tmux
+      - terminator
+      - tig
+      - unzip
+      - tar
+      - gzip
+      - bzip2
+      - nfs-kernel-server
+      - nfs-common
+      - pwgen
+      - imagemagick

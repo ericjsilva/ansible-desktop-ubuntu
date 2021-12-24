@@ -16,7 +16,6 @@ ntp_restrict:
 common:
   install: '1'
   locale: en_US.UTF-8
-  ntpserver: 'ntp.ubuntu.com'
 
 # Apache Vars
 apache_listen_port: 80
