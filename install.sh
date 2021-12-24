@@ -23,7 +23,7 @@ if [ ! -d ~/.config-desktop-home ]; then
 
     echo "\033[0;32m Installing ansible.......\033[0m"
     sudo add-apt-repository -y --update ppa:ansible/ansible
-    sudo apt install ansible ansible-galaxy
+    sudo apt install ansible
 
     echo "\033[0;32m Clone the ansible installation config.......\033[0m"
     sudo -u `whoami` -H git clone https://github.com/ericjsilva/ansible-desktop-ubuntu.git $HOME/.config-desktop-home
@@ -33,6 +33,17 @@ fi
 
 cd $HOME/.config-desktop-home
 
+echo "\033[0;32m Downloading ansible roles.......\033[0m"
+ansible-galaxy install geerlingguy.apache
+ansible-galaxy install geerlingguy.php
+ansible-galaxy install geerlingguy.mysql
+ansible-galaxy install geerlingguy.apache-php-fpm
+ansible-galaxy install geerlingguy.php-mysql
+ansible-galaxy install geerlingguy.phpmyadmin
+ansible-galaxy install geerlingguy.composer
+ansible-galaxy install geerlingguy.nodejs
+
+echo "\033[0;32m Running ansible playbook.......\033[0m"
 ansible-playbook -i hosts site.yml -c local -K
 
 echo "\033[0;32m Installing additional software.......\033[0m"
