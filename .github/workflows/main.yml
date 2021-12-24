@@ -6,10 +6,6 @@ on:
     branches:
       - main
 
-defaults:
-  run:
-    working-directory: 'ansible-desktop-ubuntu'
-
 jobs:
 
   validate:
@@ -18,8 +14,6 @@ jobs:
     steps:
       - name: Checkout codebase
         uses: actions/checkout@v2
-        with:
-          path: 'ansible-desktop-ubuntu'
       
       - name: Set up Python 3
         uses: actions/setup-python@v2
