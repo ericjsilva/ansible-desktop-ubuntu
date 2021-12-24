@@ -7,33 +7,19 @@
     name=en_US.UTF-8
     state=present
 
-- name: Configure the timezone
-  become: true
-  template: 
-    src=timezone.tpl 
-    dest=/etc/timezone
-
-- name: More Configure the timezone
-  become: true
-  file: 
-    src=/usr/share/zoneinfo/{{common.timezone}}
-    path=/etc/localtime 
-    state=link 
-    force=yes 
-    backup=yes
-
 - name: Set default system language pack
-  shell: locale-gen {{common.locale}}
-  become: true
+  shell: 
+    cmd: locale-gen {{common.locale}}
+  become: yes
 
 - name: Linux | Update cache
-  become: true
+  become: yes
   apt: 
     update_cache=yes
     cache_valid_time={{ cache_valid_time }}
 
 - name: Package | Install lists packages
-  become: true
+  become: yes
   apt: 
     pkg={{ item }} 
     state=installed

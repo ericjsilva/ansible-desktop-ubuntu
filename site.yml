@@ -13,6 +13,7 @@
 
   roles:
     - common
+    - adriagalin.timezone
     - geerlingguy.ntp
     - geerlingguy.apache
     - geerlingguy.php
