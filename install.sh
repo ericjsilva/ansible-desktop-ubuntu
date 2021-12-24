@@ -68,26 +68,17 @@ fi
 cd python
 git clone https://github.com/ericjsilva/programming-mb-python.git ./
 cd ~
-# Install pygame
-sudo pip install pygame
+# Install dependencies
+sudo pip install -r requirements.txt
 
-# checkout the React/Meteor development project
+# checkout the JavaScript and vue.js development project
 if [ ! -d $HOME/js ]; then
     mkdir $HOME/js
 fi
 cd js
-git clone https://github.com/ericjsilva/programming-mb-javascript.git ./
-
-cd ~
-
-# checkout the VueJS development project
-if [ ! -d $HOME/vuejs ]; then
-    mkdir $HOME/vuejs
-fi
-cd vuejs
 git clone https://github.com/ericjsilva/programming-mb-javascript-vuejs.git ./
 # set symlink to vuejs development directory
-sudo ln -s $HOME/vuejs /var/www/eaglescout/vuejs
+sudo ln -s $HOME/js /var/www/eaglescout/js
 
 cd ~
 }

@@ -1,5 +1,5 @@
 ##
-# Ansible playbook for setting up a LAMP development server on Ubuntu 14.04.
+# Ansible playbook for setting up a LAMP development server on Ubuntu 20.04.
 #
 ---
 
@@ -12,15 +12,12 @@
 
   roles:
     - common       # List of essential packages
-    - apache
-#    - php
-    - php7
-    - php7-pecl
-    - php7-mysql
-#    - mariadb
-    - mysql
-    - phpmyadmin
-#    - mongodb
-    - composer
-    - nodejs
-#    - app
+
+    - { role: geerlingguy.apache }
+    - { role: geerlingguy.php }
+    - { role: geerlingguy.mysql }
+    - { role: geerlingguy.apache-php-fpm }
+    - { role: geerlingguy.php-mysql }
+    - { role: geerlingguy.phpmyadmin }
+    - { role: geerlingguy.composer }
+    - { role: geerlingguy.nodejs }

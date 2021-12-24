@@ -1,4 +1,0 @@
----
-- name: Ensure PHPMyAdmin is installed.
-  yum: pkg=phpmyadmin state=installed enablerepo=epel
-  notify: restart apache
