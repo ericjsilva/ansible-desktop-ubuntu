@@ -1,6 +1,7 @@
+![Build Status](https://github.com/ericjsilva/ansible-desktop-ubuntu/actions/workflows/main.yml/badge.svg)
 # Automated Desktop Setup
 
-This is an ansible script designed to automate the installation of an Ubuntu desktop complete with the basic tools and services needed to develop applications in PHP, Python, and JavaScript.
+This is an [Ansible](https://github.com/ansible/ansible) script designed to automate the installation of an Ubuntu desktop; complete with the basic tools and services needed to develop applications in PHP, Python, and JavaScript. This repository can easily be extended to support addtional language frameworks and supporting services, databases, etc.
 
 ## Compatibility
 
@@ -28,10 +29,8 @@ And enter your password _(if prompted)_.
 
 This project will install the following packages:
 
-    * aptitude
-    * bash-completion
+    * aptitude (i.e., apt)
     * openssh-server
-    * vim
     * git
     * git-core
     * git-flow
@@ -41,22 +40,17 @@ This project will install the following packages:
     * zsh
     * curl
     * wget
-    * htop
-    * ack-grep
-    * ccze
-    * tmux
-    * terminator
-    * tig
-    * unzip
-    * tar
-    * gzip
-    * bzip2
     * nfs-kernel-server
     * nfs-common
-    * pwgen
-    * imagemagick
+
+This project will install the following applications:
+
     * LAMP (MySQL, Apache, PHP 8.1), pear, phpmyadmin, composer
-    * nodejs
+    * python 3.9
+    * nodejs 14.x
+    * [Sublime Text](https://www.sublimetext.com)
+    * [Atom IDE](https://atom.io)
+    * [VSCode IDE](https://code.visualstudio.com)
 
 ## Custom Installation
 
@@ -69,39 +63,40 @@ And you have to edit the file `site.yml` and comment line the list roles. For ex
 
 ```yml
 ##
-# Ansible playbook for setting up a LAMP development server on Ubuntu 14.04.
+# Ansible playbook for setting up a LAMP development server on Ubuntu 20.04.
 #
 
 ---
 - hosts: local
   user: bsa_user
-  sudo: yes
+    sudo: yes
 
   vars_files:
     - group_vars/all.yml
 
   roles:
-    - common    # List of essential packages
-    - apache
-    - php
-    - mariadb
-    - mysql
-    - phpmyadmin
-    - mongodb
-    - composer
-    - nodejs
+    - common       # List of essential packages
+
+    - { role: geerlingguy.apache }
+    - { role: geerlingguy.php }
+    - { role: geerlingguy.mysql }
+    - { role: geerlingguy.apache-php-fpm }
+    - { role: geerlingguy.php-mysql }
+    - { role: geerlingguy.phpmyadmin }
+    - { role: geerlingguy.composer }
+    - { role: geerlingguy.nodejs }
 ```
 
 Install Ansible:
 
-    $ sudo apt-get install -y -qq python python-pip
+    $ sudo apt install -y -qq python3 python3-pip
     $ sudo pip install ansible
 
 And execute command:
 
     $ ansible-playbook -i hosts site.yml -c local -K
 
-You can also contribute to add new roles or improve existing.
+You can also contribute to add new roles or improve existing roles.
 
 ## License
 
