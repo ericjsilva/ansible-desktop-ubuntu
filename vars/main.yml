@@ -20,13 +20,14 @@ common:
 # Apache Vars
 apache_listen_port: 80
 apache_remove_default_vhost: true
+apache_create_vhosts: true
 apache_vhosts:
   - servername: "localhost"
     documentroot: "/var/www/eaglescout"
     extra_parameters: |
       ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/eaglescout"
 apache_allow_override: "All"
-apache_options: "Options +Indexes +FollowSymLinks"
+apache_options: "+Indexes +FollowSymLinks"
 
 # PHP Vars
 php_webserver_daemon: apache2
