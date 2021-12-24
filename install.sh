@@ -64,7 +64,7 @@ echo "\033[0;32m Installing VSCode.......\033[0m"
 sudo snap install --classic code
 echo "\033[0;32m Installing VSCode Extensions.......\033[0m"
 code --install-extension ms-python.python
-code --install-extension EditorConfig.EditorConfigv
+code --install-extension EditorConfig.EditorConfig
 code --install-extension bmewburn.vscode-intelephense-client
 
 echo "\033[0;32m Installing Atom.......\033[0m"
