@@ -47,7 +47,6 @@ php_packages:
   - php8.1-mysql
   - php8.1-opcache
   - php8.1-pdo
-  - php8.1-pecl-apcu
   - php8.1-xml
 
 # MySQL Vars
