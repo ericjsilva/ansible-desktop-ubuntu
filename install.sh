@@ -8,7 +8,7 @@ CURRENT=`pwd`
 
 if [ ! -d ~/.config-desktop-home ]; then
     echo "\033[0;32m Enable universe apt repo.......\033[0m"
-    sudo add-apt-repository universe
+    sudo add-apt-repository -y --update universe
 
     echo "\033[0;32m Enable ondrej/php apt repo.......\033[0m"
     sudo add-apt-repository -y --update ppa:ondrej/php
@@ -25,7 +25,6 @@ if [ ! -d ~/.config-desktop-home ]; then
     pip install --upgrade pip
 
     echo "\033[0;32m Installing ansible.......\033[0m"
-    sudo add-apt-repository -y --update ppa:ansible/ansible
     sudo apt install ansible
 
     echo "\033[0;32m Clone the ansible installation config.......\033[0m"
