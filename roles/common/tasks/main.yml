@@ -19,7 +19,7 @@
 - name: Package | Install lists packages
   become: yes
   apt:   
-    state: installed
+    state: latest
     name:
       - aptitude
       - bash-completion
