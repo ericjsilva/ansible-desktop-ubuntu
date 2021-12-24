@@ -35,18 +35,20 @@ php_memory_limit: "128M"
 php_max_execution_time: "90"
 php_upload_max_filesize: "256M"
 php_packages:
-  - php
-  - php-cli
-  - php-common
-  - php-gd
-  - php-curl
-  - php-fpm
-  - php-json
-  - php-mbstring
-  - php-opcache
-  - php-pdo
-  - php-pecl-apcu
-  - php-xml
+  - php8.1-cli
+  - php8.1-common
+  - php8.1-dev
+  - php8.1-gd
+  - php8.1-curl
+  - php8.1-fpm
+  - php8.1-imagick
+  - php8.1-json
+  - php8.1-mbstring
+  - php8.1-mysql
+  - php8.1-opcache
+  - php8.1-pdo
+  - php8.1-pecl-apcu
+  - php8.1-xml
 
 # MySQL Vars
 mysql_root_home: /root
