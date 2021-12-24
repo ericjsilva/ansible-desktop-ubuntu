@@ -5,7 +5,7 @@
 
 - hosts: local
   user: eaglescout
-  become: true
+  become: yes
 
   vars_files:
     - group_vars/all.yml

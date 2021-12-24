@@ -75,7 +75,7 @@ And you have to edit the file `site.yml` and comment line the list roles. For ex
 ---
 - hosts: local
   user: bsa_user
-    sudo: yes
+    become: true
 
   vars_files:
     - group_vars/all.yml
