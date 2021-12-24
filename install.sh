@@ -62,7 +62,7 @@ fi
 cd python
 git clone https://github.com/ericjsilva/programming-mb-python.git ./
 # Install dependencies
-sudo pip install -r requirements.txt
+pip install -r requirements.txt
 cd ~
 
 # Checkout the JavaScript and vue.js development project
