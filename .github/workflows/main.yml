@@ -1,0 +1,30 @@
+---
+name: Verify install
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+defaults:
+  run:
+    working-directory: 'ansible-desktop-ubuntu'
+
+jobs:
+
+  validate:
+    name: Validate install
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+        with:
+          path: 'ansible-desktop-ubuntu'
+      
+      - name: Set up Python 3
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Run installer
+        run: sh install.sh

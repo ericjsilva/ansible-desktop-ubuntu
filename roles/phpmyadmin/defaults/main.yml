@@ -1,8 +1,0 @@
----
-phpmyadmin:
-    mysql_host: localhost
-    mysql_port: ""
-    mysql_socket: ""
-    mysql_connect_type: tcp
-    mysql_user: root
-    mysql_password: "{{ mysql.root_password }}"

@@ -6,8 +6,7 @@ This is an ansible script designed to automate the installation of an Ubuntu des
 
 This script has been tested on the following Ubuntu versions:
 
-    * 14.04 LTS
-    * 16.04 LTS
+    * 20.04 LTS
 
 ## Requirements
 
@@ -56,8 +55,7 @@ This project will install the following packages:
     * nfs-common
     * pwgen
     * imagemagick
-    * LAMP (MariaDB), pear, phpmyadmin, Composer
-    * MongoDB
+    * LAMP (MySQL, Apache, PHP 8.1), pear, phpmyadmin, composer
     * nodejs
 
 ## Custom Installation

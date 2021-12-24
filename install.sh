@@ -14,7 +14,7 @@ if [ ! -d ~/.config-desktop-home ]; then
     sudo apt-get update
 
     echo "\033[0;32m Installing python, git, and open-ssh.......\033[0m"
-    sudo apt-get install -y -qq python python-pip git git-core openssh-server
+    sudo apt-get install -y -qq python python3-pip git git-core openssh-server
 
     echo "\033[0;32m Updating pip.......\033[0m"
     sudo -H pip install --upgrade pip
@@ -38,10 +38,8 @@ ansible-playbook -i hosts site.yml -c local -K
 echo "\033[0;32m Installing additional software.......\033[0m"
 # Install Sublime Text
 cd ~
-#wget https://download.sublimetext.com/sublime-text_build-3176_i386.deb
-#sudo -H dpkg -i sublime-text_build-3126_i386.deb
 
-# New Sublime Install
+echo "\033[0;32m Installing Sublime Text.......\033[0m"
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 sudo apt-get install apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
@@ -49,47 +47,39 @@ sudo apt-get update
 sudo apt-get install sublime-text
 sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/sublime
 
-
-# Install Meteor
-# curl https://install.meteor.com/ | sh
-
-# set symlink to php development directory
+echo "\033[0;32m Installing PHP projects.......\033[0m"
+# Set symlink to PHP development directory
 mkdir $HOME/php-www
 sudo ln -s $HOME/php-www /var/www/eaglescout
-# checkout the PHP development project
+# Checkout the PHP development project
 cd $HOME/php-www
 git clone https://github.com/ericjsilva/programming-mb-php.git ./
-
 cd ~
-# checkout the Python development project
+
+echo "\033[0;32m Installing Python projects.......\033[0m"
+# Checkout the Python development project
 if [ ! -d $HOME/python ]; then
     mkdir $HOME/python
 fi
 cd python
 git clone https://github.com/ericjsilva/programming-mb-python.git ./
+# Install 
+echo "\033[0;32m Installing Python project dependencies.......\033[0m"
+pip install -r requirements.txt
 cd ~
-# Install pygame
-sudo pip install pygame
 
-# checkout the React/Meteor development project
+echo "\033[0;32m Installing JavaScript projects.......\033[0m"
+# Checkout the JavaScript and vue.js development project
 if [ ! -d $HOME/js ]; then
     mkdir $HOME/js
 fi
 cd js
-git clone https://github.com/ericjsilva/programming-mb-javascript.git ./
-
-cd ~
-
-# checkout the VueJS development project
-if [ ! -d $HOME/vuejs ]; then
-    mkdir $HOME/vuejs
-fi
-cd vuejs
 git clone https://github.com/ericjsilva/programming-mb-javascript-vuejs.git ./
-# set symlink to vuejs development directory
-sudo ln -s $HOME/vuejs /var/www/eaglescout/vuejs
+# Set symlink to vuejs development directory
+sudo ln -s $HOME/js /var/www/eaglescout/js-labs
 
 cd ~
+echo "\033[0;32m Installation complete.\033[0m"
 }
 
 run_it

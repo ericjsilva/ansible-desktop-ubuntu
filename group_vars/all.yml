@@ -11,58 +11,62 @@ common:
   locale: en_US.UTF-8
   ntpserver: 'ntp.ubuntu.com'
 
-apache:
-  httpd_port: 80
-  docroot: /var/www/eaglescout
-  servername: localhost
+# Apache Vars
+apache_listen_port: 80
+apache_vhosts:
+  - servername: "localhost"
+    documentroot: "/var/www/eaglescout"
+    extra_parameters: |
+      ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/eaglescout"
 
-php:
-  php_date_timezone: 'America/New_York'
-  install: '1'
-  ppa: php5-5.6
-  packages: [php5-dev, php5-cli, php-pear, php5-curl, php5-intl, php5-json, php5-mcrypt, php5-mysql, php5-curl, php5-imagick, php5-xdebug, php5-xmlrpc]
-
-php7:
-  php_date_timezone: 'America/New_York'
-  install: '1'
-  packages: [php7.0-common, php7.0-cli, libpcre3-dev, php7.0-gd, php7.0-curl, php7.0-mysql, php7.0-mcrypt, php7.0-imap, php7.0-json, php7.0-opcache, php7.0-xml, php7.0-mbstring]
-
-mariadb:
-  current_password: ''
-  root_password: pass@word1
-
-mysql:
-    install: '1'
-    root_password: pass@word1
-    database: eaglescout
-    user: eaglescout
-    password: eaglescout1
-    dump: ''
-
-# Enable PHP 7 on Apache
+# PHP Vars
+php_webserver_daemon: apache2
+php_default_version_debian: "8.1"
+php_version: "8.1"
+php_enable_php_fpm: true
+php_date_timezone: 'America/New_York'
+php_memory_limit: "128M"
+php_max_execution_time: "90"
+php_upload_max_filesize: "256M"
 php_packages:
-  - php7.0-common
-  - php7.0-cli
-  - php7.0-dev
-  - php7.0-fpm
-  - libpcre3-dev
-  - php7.0-gd
-  - php7.0-curl
-  - php7.0-imap
-  - php7.0-json
-  - php7.0-opcache
-  - php7.0-xml
-  - php7.0-mbstring
-  - php-sqlite3
-  - php-apcu
-  - php7.0-mcrypt
-  - libapache2-mod-php7.0
+  - php
+  - php-cli
+  - php-common
+  - php-devel
+  - php-gd
+  - php-curl
+  - php-fpm
+  - php-json
+  - php-mbstring
+  - php-opcache
+  - php-pdo
+  - php-pecl-apcu
+  - php-xml
 
-php_enable_webserver: true
+# MySQL Vars
+mysql_root_home: /root
+mysql_root_username: root
+mysql_root_password: pass@word1
 
-# Node.js configuration (if enabled above).
-# Valid examples: "0.10", "0.12", "4.x", "5.x".
-nodejs_version: "0.12"
-nodejs_npm_global_packages: []
-nodejs_install_npm_user: "ubuntu"
-npm_config_prefix: "/home/ubuntu/.npm-global"
+mysql_databases:
+  - name: eaglescout
+    encoding: utf8mb4
+    collation: utf8mb4_unicode_ci
+
+mysql_users:
+  - name: eaglescout
+    host: "%"
+    password: eaglescout1
+    priv: "eaglescout.*:ALL"
+
+mysql_packages:
+  - mysql-server
+  - mysql-client
+  - python-mysqldb
+
+# Node.js Vars
+nodejs_version: "14.x"
+nodejs_npm_global_packages:
+  - name: jslint
+  - name: node-sass
+    version: 7.0.0
