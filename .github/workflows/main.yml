@@ -28,5 +28,3 @@ jobs:
 
       - name: Run installer
         run: sh install.sh
-        with:
-          path: 'ansible-desktop-ubuntu'
