@@ -16,10 +16,10 @@
     update_cache: yes
     cache_valid_time: "{{ cache_valid_time }}"
 
-- name: Package | Install lists packages
+- name: Package | Install required packages
   become: yes
   apt:   
-    state: latest
+    state: present
     name:
       - aptitude
       - bash-completion
