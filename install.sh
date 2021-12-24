@@ -83,7 +83,7 @@ if [ ! -d $HOME/php ]; then
 fi
 # Create the eaglescout directory if it doesn't exist
 if [ ! -d /var/www/eaglescout ]; then
-    mkdir /var/www/eaglescout
+    sudo mkdir /var/www/eaglescout
 fi
 sudo ln -s $HOME/php /var/www/eaglescout/php
 # Checkout the PHP development project
