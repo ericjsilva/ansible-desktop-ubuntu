@@ -38,8 +38,6 @@ ansible-playbook -i hosts site.yml -c local -K
 echo "\033[0;32m Installing additional software.......\033[0m"
 # Install Sublime Text
 cd ~
-#wget https://download.sublimetext.com/sublime-text_build-3176_i386.deb
-#sudo -H dpkg -i sublime-text_build-3126_i386.deb
 
 # New Sublime Install
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
@@ -49,35 +47,31 @@ sudo apt-get update
 sudo apt-get install sublime-text
 sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/sublime
 
-
-# Install Meteor
-# curl https://install.meteor.com/ | sh
-
-# set symlink to php development directory
+# Set symlink to php development directory
 mkdir $HOME/php-www
 sudo ln -s $HOME/php-www /var/www/eaglescout
-# checkout the PHP development project
+# Checkout the PHP development project
 cd $HOME/php-www
 git clone https://github.com/ericjsilva/programming-mb-php.git ./
 
 cd ~
-# checkout the Python development project
+# Checkout the Python development project
 if [ ! -d $HOME/python ]; then
     mkdir $HOME/python
 fi
 cd python
 git clone https://github.com/ericjsilva/programming-mb-python.git ./
-cd ~
 # Install dependencies
 sudo pip install -r requirements.txt
+cd ~
 
-# checkout the JavaScript and vue.js development project
+# Checkout the JavaScript and vue.js development project
 if [ ! -d $HOME/js ]; then
     mkdir $HOME/js
 fi
 cd js
 git clone https://github.com/ericjsilva/programming-mb-javascript-vuejs.git ./
-# set symlink to vuejs development directory
+# Set symlink to vuejs development directory
 sudo ln -s $HOME/js /var/www/eaglescout/js
 
 cd ~
