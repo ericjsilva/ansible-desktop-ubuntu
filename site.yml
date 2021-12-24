@@ -3,7 +3,8 @@
 #
 ---
 
-- hosts: local
+- hosts: localhost
+  connection: local
   user: eaglescout
   become: yes
 
