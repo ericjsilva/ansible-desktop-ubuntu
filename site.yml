@@ -5,7 +5,6 @@
 
 - hosts: localhost
   connection: local
-  user: eaglescout
   become: yes
 
   vars_files:
