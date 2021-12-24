@@ -15,17 +15,15 @@ if [ ! -d ~/.config-desktop-home ]; then
     
     echo "\033[0;32m Installing python, git, and open-ssh.......\033[0m"
     sudo apt install -y software-properties-common
-    sudo add-apt-repository ppa:deadsnakes/ppa
+    sudo add-apt-repository -y --update ppa:deadsnakes/ppa
     sudo apt install -y -qq python3.9 python3-pip git git-core openssh-server
 
     echo "\033[0;32m Updating pip.......\033[0m"
-    sudo -H pip install --upgrade pip
-
-    echo "\033[0;32m Installing ansible dependencies.......\033[0m"
-    sudo apt install -y build-essential libssl-dev libffi-dev python-dev
+    pip install --upgrade pip
 
     echo "\033[0;32m Installing ansible.......\033[0m"
-    sudo -H pip install ansible
+    sudo add-apt-repository -y --update ppa:ansible/ansible
+    sudo apt install ansible
 
     echo "\033[0;32m Clone the ansible installation config.......\033[0m"
     sudo -u `whoami` -H git clone https://github.com/ericjsilva/ansible-desktop-ubuntu.git $HOME/.config-desktop-home
@@ -35,6 +33,18 @@ fi
 
 cd $HOME/.config-desktop-home
 
+echo "\033[0;32m Downloading ansible roles.......\033[0m"
+ansible-galaxy install adriagalin.timezone
+ansible-galaxy install geerlingguy.apache
+ansible-galaxy install geerlingguy.php
+ansible-galaxy install geerlingguy.mysql
+ansible-galaxy install geerlingguy.apache-php-fpm
+ansible-galaxy install geerlingguy.php-mysql
+ansible-galaxy install geerlingguy.phpmyadmin
+ansible-galaxy install geerlingguy.composer
+ansible-galaxy install geerlingguy.nodejs
+
+echo "\033[0;32m Running ansible playbook.......\033[0m"
 ansible-playbook -i hosts site.yml -c local -K
 
 echo "\033[0;32m Installing additional software.......\033[0m"

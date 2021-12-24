@@ -73,34 +73,40 @@ And you have to edit the file `site.yml` and comment line the list roles. For ex
 #
 
 ---
-- hosts: local
-  user: bsa_user
-    become: true
+- hosts: localhost
+  connection: local
+  user: eaglescout
+  become: yes
 
   vars_files:
-    - group_vars/all.yml
+    - vars/main.yml
 
   roles:
-    - common       # List of essential packages
-
-    - { role: geerlingguy.apache }
-    - { role: geerlingguy.php }
-    - { role: geerlingguy.mysql }
-    - { role: geerlingguy.apache-php-fpm }
-    - { role: geerlingguy.php-mysql }
-    - { role: geerlingguy.phpmyadmin }
-    - { role: geerlingguy.composer }
-    - { role: geerlingguy.nodejs }
+    - common
+    - adriagalin.timezone
+    - geerlingguy.ntp
+    - geerlingguy.apache
+    - geerlingguy.php
+    - geerlingguy.mysql
+    - geerlingguy.apache-php-fpm
+    - geerlingguy.php-mysql
+    - geerlingguy.phpmyadmin
+    - geerlingguy.composer
+    - geerlingguy.nodejs
 ```
 
 Install Ansible:
 
-    $ sudo apt install -y -qq python3 python3-pip
-    $ sudo pip install ansible
+```shell
+$ sudo apt install -y -qq python3 python3-pip
+$ sudo pip install ansible
+```
 
 And execute command:
 
-    $ ansible-playbook -i hosts site.yml -c local -K
+```shell
+$ ansible-playbook -i hosts site.yml -c local -K
+```
 
 You can also contribute to add new roles or improve existing roles.
 

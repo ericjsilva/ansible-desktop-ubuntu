@@ -1,46 +1,26 @@
 ---
-# This playbook contains common plays that will be run on all nodes.
-
-# for 1.6 this ansible
+# This playbook contains common tasks that will be run.
 - name: Create en_US.UTF-8 locale
-  locale_gen: name=en_US.UTF-8 state=present
-
-- name: Configure the timezone
-  become: true
-  template: src=timezone.tpl dest=/etc/timezone
-
-- name: More Configure the timezone
-  become: true
-  file: src=/usr/share/zoneinfo/{{common.timezone}} dest=/etc/localtime state=link force=yes backup=yes
+  locale_gen: 
+    name=en_US.UTF-8
+    state=present
 
 - name: Set default system language pack
-  shell: locale-gen {{common.locale}}
-  become: true
-
-- name: NTP | Install
-  apt: name=ntp state=present
-  tags: ntp
-
-- name: NTP | Configure ntp file
-  template: src=ntp.conf.j2 dest=/etc/ntp.conf
-  tags: ntp
-  notify: Restart ntp
-
-- name: NTP | Start the ntp service
-  service: name=ntp state=started enabled=true
-  tags: ntp
+  shell: 
+    cmd: locale-gen {{common.locale}}
+  become: yes
 
 - name: Linux | Update cache
-  become: true
-  apt: update_cache=yes cache_valid_time={{ cache_valid_time }}
-
-
-#- name: Linux | Upgrade
-#  apt: upgrade=dist
+  become: yes
+  apt: 
+    update_cache=yes
+    cache_valid_time={{ cache_valid_time }}
 
 - name: Package | Install lists packages
-  become: true
-  apt: pkg={{ item }} state=installed
+  become: yes
+  apt: 
+    pkg={{ item }} 
+    state=installed
   with_items:
     - aptitude
     - bash-completion
