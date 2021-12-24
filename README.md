@@ -97,12 +97,16 @@ And you have to edit the file `site.yml` and comment line the list roles. For ex
 
 Install Ansible:
 
-    $ sudo apt install -y -qq python3 python3-pip
-    $ sudo pip install ansible
+```shell
+$ sudo apt install -y -qq python3 python3-pip
+$ sudo pip install ansible
+```
 
 And execute command:
 
-    $ ansible-playbook -i hosts site.yml -c local -K
+```shell
+$ ansible-playbook -i hosts site.yml -c local -K
+```
 
 You can also contribute to add new roles or improve existing roles.
 

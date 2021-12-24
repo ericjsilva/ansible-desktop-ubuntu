@@ -1,7 +1,5 @@
 ---
-# This playbook contains common plays that will be run on all nodes.
-
-# for 1.6 this ansible
+# This playbook contains common tasks that will be run.
 - name: Create en_US.UTF-8 locale
   locale_gen: 
     name=en_US.UTF-8
