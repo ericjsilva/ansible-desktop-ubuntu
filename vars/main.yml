@@ -74,4 +74,3 @@ nodejs_version: "14.x"
 nodejs_npm_global_packages:
   - name: jslint
   - name: node-sass
-    version: 7.0.0
