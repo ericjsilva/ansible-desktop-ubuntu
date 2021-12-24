@@ -23,6 +23,12 @@ If you want to change anything:
 $ curl -L https://raw.githubusercontent.com/ericjsilva/ansible-desktop-ubuntu/master/install.sh | sh
 ```
 
+or 
+
+```shell
+$ wget -O - https://raw.githubusercontent.com/ericjsilva/ansible-desktop-ubuntu/master/install.sh | sh
+```
+
 And enter your password _(if prompted)_.
 
 ## Default Installation
