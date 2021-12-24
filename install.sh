@@ -35,6 +35,7 @@ cd $HOME/.config-desktop-home
 
 echo "\033[0;32m Downloading ansible roles.......\033[0m"
 ansible-galaxy install adriagalin.timezone
+ansible-galaxy install geerlingguy.ntp
 ansible-galaxy install geerlingguy.apache
 ansible-galaxy install geerlingguy.php
 ansible-galaxy install geerlingguy.mysql
