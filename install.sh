@@ -43,8 +43,8 @@ sudo apt install software-properties-common apt-transport-https wget
 cd ~
 # Install Sublime Text
 echo "\033[0;32m Installing Sublime Text.......\033[0m"
-sudo snap install sublime-text --classic
-sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/sublime
+sudo snap install --classic sublime-text 
+sudo ln -s /snap/sublime-text/current/opt/sublime_text/sublime_text /usr/local/bin/sublime
 
 echo "\033[0;32m Installing VSCode.......\033[0m"
 sudo snap install --classic code
