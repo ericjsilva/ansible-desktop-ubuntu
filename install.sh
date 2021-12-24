@@ -61,6 +61,7 @@ apm install file-icons
 apm install pigments
 apm install autoclose-html-plus
 apm install highlight-selected
+apm install open-in-browser
 
 
 echo "\033[0;32m Installing PHP projects.......\033[0m"
