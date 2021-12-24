@@ -3,44 +3,40 @@
 
 # for 1.6 this ansible
 - name: Create en_US.UTF-8 locale
-  locale_gen: name=en_US.UTF-8 state=present
+  locale_gen: 
+    name=en_US.UTF-8
+    state=present
 
 - name: Configure the timezone
   become: true
-  template: src=timezone.tpl dest=/etc/timezone
+  template: 
+    src=timezone.tpl 
+    dest=/etc/timezone
 
 - name: More Configure the timezone
   become: true
-  file: src=/usr/share/zoneinfo/{{common.timezone}} dest=/etc/localtime state=link force=yes backup=yes
+  file: 
+    src=/usr/share/zoneinfo/{{common.timezone}}
+    path=/etc/localtime 
+    state=link 
+    force=yes 
+    backup=yes
 
 - name: Set default system language pack
   shell: locale-gen {{common.locale}}
   become: true
 
-- name: NTP | Install
-  apt: name=ntp state=present
-  tags: ntp
-
-- name: NTP | Configure ntp file
-  template: src=ntp.conf.j2 dest=/etc/ntp.conf
-  tags: ntp
-  notify: Restart ntp
-
-- name: NTP | Start the ntp service
-  service: name=ntp state=started enabled=true
-  tags: ntp
-
 - name: Linux | Update cache
   become: true
-  apt: update_cache=yes cache_valid_time={{ cache_valid_time }}
-
-
-#- name: Linux | Upgrade
-#  apt: upgrade=dist
+  apt: 
+    update_cache=yes
+    cache_valid_time={{ cache_valid_time }}
 
 - name: Package | Install lists packages
   become: true
-  apt: pkg={{ item }} state=installed
+  apt: 
+    pkg={{ item }} 
+    state=installed
   with_items:
     - aptitude
     - bash-completion

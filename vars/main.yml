@@ -5,6 +5,12 @@ url_apt_key: "http://keyserver.ubuntu.com/pks/lookup?op=get&search="
 
 user: eaglescout
 
+ntp_timezone: Etc/UTC
+ntp_package: ntp
+ntp_restrict:
+  - "127.0.0.1"
+  - "::1"
+
 common:
   install: '1'
   timezone: UTC
