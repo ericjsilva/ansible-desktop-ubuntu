@@ -55,8 +55,7 @@ This project will install the following packages:
     * nfs-common
     * pwgen
     * imagemagick
-    * LAMP (MariaDB), pear, phpmyadmin, Composer
-    * MongoDB
+    * LAMP (MySQL, Apache, PHP 8.1), pear, phpmyadmin, composer
     * nodejs
 
 ## Custom Installation

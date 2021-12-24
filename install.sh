@@ -14,7 +14,7 @@ if [ ! -d ~/.config-desktop-home ]; then
     sudo apt-get update
 
     echo "\033[0;32m Installing python, git, and open-ssh.......\033[0m"
-    sudo apt-get install -y -qq python python-pip git git-core openssh-server
+    sudo apt-get install -y -qq python python3-pip git git-core openssh-server
 
     echo "\033[0;32m Updating pip.......\033[0m"
     sudo -H pip install --upgrade pip
