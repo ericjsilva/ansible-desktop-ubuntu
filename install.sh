@@ -7,14 +7,17 @@ run_it () {
 CURRENT=`pwd`
 
 if [ ! -d ~/.config-desktop-home ]; then
-    echo "\033[0;32m Enable universe apt-get repo.......\033[0m"
+    echo "\033[0;32m Enable universe apt repo.......\033[0m"
     sudo add-apt-repository universe
+
+    echo "\033[0;32m Enable ondrej/php apt repo.......\033[0m"
+    sudo add-apt-repository -y --update ppa:ondrej/php
 
     echo "\033[0;32m Updating apt.......\033[0m"
     sudo apt update
+    sudo apt install -y software-properties-common
     
     echo "\033[0;32m Installing python, git, and open-ssh.......\033[0m"
-    sudo apt install -y software-properties-common
     sudo add-apt-repository -y --update ppa:deadsnakes/ppa
     sudo apt install -y -qq python3.9 python3-pip git git-core openssh-server
 
@@ -49,7 +52,7 @@ echo "\033[0;32m Running ansible playbook.......\033[0m"
 ansible-playbook -i hosts site.yml -c local -K
 
 echo "\033[0;32m Installing additional software.......\033[0m"
-sudo apt install software-properties-common apt-transport-https wget 
+sudo apt install apt-transport-https
 
 cd ~
 # Install Sublime Text

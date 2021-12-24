@@ -30,7 +30,7 @@ php_webserver_daemon: apache2
 php_default_version_debian: "8.1"
 php_version: "8.1"
 php_enable_php_fpm: true
-php_date_timezone: 'America/New_York'
+php_date_timezone: "America/New_York"
 php_memory_limit: "128M"
 php_max_execution_time: "90"
 php_upload_max_filesize: "256M"
