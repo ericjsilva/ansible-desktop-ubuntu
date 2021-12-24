@@ -36,18 +36,22 @@ And enter your password _(if prompted)_.
 This project will install the following packages:
 
     * aptitude (i.e., apt)
+    * bash-completion
     * openssh-server
+    * vim
     * git
-    * git-core
-    * git-flow
-    * git-email
-    * git-extras
-    * git-svn
     * zsh
     * curl
     * wget
-    * nfs-kernel-server
-    * nfs-common
+    * htop
+    * tmux
+    * terminator
+    * tig
+    * unzip
+    * tar
+    * gzip
+    * bzip2
+    * imagemagick
 
 This project will install the following applications:
 
