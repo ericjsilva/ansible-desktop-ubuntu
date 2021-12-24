@@ -10,17 +10,19 @@ if [ ! -d ~/.config-desktop-home ]; then
     echo "\033[0;32m Enable universe apt-get repo.......\033[0m"
     sudo add-apt-repository universe
 
-    echo "\033[0;32m Updating apt-get.......\033[0m"
-    sudo apt-get update
-
+    echo "\033[0;32m Updating apt.......\033[0m"
+    sudo apt update
+    
     echo "\033[0;32m Installing python, git, and open-ssh.......\033[0m"
-    sudo apt-get install -y -qq python python3-pip git git-core openssh-server
+    sudo apt install -y software-properties-common
+    sudo add-apt-repository ppa:deadsnakes/ppa
+    sudo apt install -y -qq python3.9 python3-pip git git-core openssh-server
 
     echo "\033[0;32m Updating pip.......\033[0m"
     sudo -H pip install --upgrade pip
 
     echo "\033[0;32m Installing ansible dependencies.......\033[0m"
-    sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev
+    sudo apt install -y build-essential libssl-dev libffi-dev python-dev
 
     echo "\033[0;32m Installing ansible.......\033[0m"
     sudo -H pip install ansible
@@ -36,16 +38,30 @@ cd $HOME/.config-desktop-home
 ansible-playbook -i hosts site.yml -c local -K
 
 echo "\033[0;32m Installing additional software.......\033[0m"
-# Install Sublime Text
-cd ~
+sudo apt install software-properties-common apt-transport-https wget 
 
+cd ~
+# Install Sublime Text
 echo "\033[0;32m Installing Sublime Text.......\033[0m"
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-sudo apt-get install apt-transport-https
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt-get update
-sudo apt-get install sublime-text
-sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/sublime
+sudo snap install --classic sublime-text 
+sudo ln -s /snap/sublime-text/current/opt/sublime_text/sublime_text /usr/local/bin/sublime
+
+echo "\033[0;32m Installing VSCode.......\033[0m"
+sudo snap install --classic code
+echo "\033[0;32m Installing VSCode Extensions.......\033[0m"
+code --install-extension ms-python.python
+code --install-extension EditorConfig.EditorConfigv
+code --install-extension bmewburn.vscode-intelephense-client
+
+echo "\033[0;32m Installing Atom.......\033[0m"
+sudo snap install --classic atom
+echo "\033[0;32m Installing Atom Packages.......\033[0m"
+apm install script
+apm install file-icons
+apm install pigments
+apm install autoclose-html-plus
+apm install highlight-selected
+
 
 echo "\033[0;32m Installing PHP projects.......\033[0m"
 # Set symlink to PHP development directory
