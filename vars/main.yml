@@ -19,7 +19,7 @@ common:
 
 # Apache Vars
 apache_listen_port: 80
-apache_remove_default_vhost: false
+apache_remove_default_vhost: true
 apache_vhosts:
   - servername: "localhost"
     documentroot: "/var/www/eaglescout"
