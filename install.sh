@@ -91,7 +91,10 @@ fi
 if [ ! -d /var/www/eaglescout ]; then
     sudo mkdir /var/www/eaglescout
 fi
-sudo ln -s $HOME/php /var/www/eaglescout/php
+# Create a symlink to the php directory in the webroot
+if [ ! -L /var/www/eaglescout/php]; then
+    sudo ln -s $HOME/php /var/www/eaglescout/php
+fi
 # Checkout the PHP development project
 cd $HOME/php
 git clone https://github.com/ericjsilva/programming-mb-php.git ./
@@ -114,7 +117,10 @@ echo "\033[0;32m Installing JavaScript projects.......\033[0m"
 if [ ! -d $HOME/js ]; then
     mkdir $HOME/js
 fi
-sudo ln -s $HOME/js /var/www/eaglescout/js
+# Create a symlink to the javascript directory in the webroot
+if [ ! -L /var/www/eaglescout/js]; then
+    sudo ln -s $HOME/js /var/www/eaglescout/js
+fi
 cd $HOME/js
 git clone https://github.com/ericjsilva/programming-mb-javascript-vuejs.git ./
 
