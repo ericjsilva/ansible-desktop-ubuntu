@@ -124,6 +124,11 @@ fi
 cd $HOME/js
 git clone https://github.com/ericjsilva/programming-mb-javascript-vuejs.git ./
 
+# Install npm dependencies
+npm install
+# Initialize the processing of styles.scss to css
+./node_modules/node-sass/bin/node-sass -i styles.scss -o css
+
 cd ~
 echo "\033[0;32m Installation complete.\033[0m"
 }
