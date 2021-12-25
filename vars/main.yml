@@ -22,7 +22,7 @@ apache_listen_port: 80
 apache_remove_default_vhost: true
 apache_create_vhosts: true
 apache_vhosts:
-  - servername: "stem.dev"
+  - servername: "stem.test"
     documentroot: "/var/www/eaglescout"
     extra_parameters: |
       ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/eaglescout"
