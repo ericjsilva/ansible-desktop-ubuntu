@@ -35,32 +35,32 @@ And enter your password _(if prompted)_.
 
 This project will install the following packages:
 
-    * aptitude (i.e., apt)
-    * bash-completion
-    * openssh-server
-    * vim
-    * git
-    * zsh
-    * curl
-    * wget
-    * htop
-    * tmux
-    * terminator
-    * tig
-    * unzip
-    * tar
-    * gzip
-    * bzip2
-    * imagemagick
+* aptitude (i.e., apt)
+* bash-completion
+* openssh-server
+* vim
+* git
+* zsh
+* curl
+* wget
+* htop
+* tmux
+* terminator
+* tig
+* unzip
+* tar
+* gzip
+* bzip2
+* imagemagick
 
 This project will install the following applications:
 
-    * LAMP (MySQL, Apache, PHP 8.1), pear, phpmyadmin, composer
-    * python 3.9
-    * nodejs 14.x
-    * [Sublime Text](https://www.sublimetext.com)
-    * [Atom IDE](https://atom.io)
-    * [VSCode IDE](https://code.visualstudio.com)
+* LAMP (MySQL, Apache, PHP 8.1), pear, phpmyadmin, composer
+* python 3.9
+* nodejs 14.x
+* [Sublime Text](https://www.sublimetext.com)
+* [Atom IDE](https://atom.io)
+* [VSCode IDE](https://code.visualstudio.com)
 
 ## Custom Installation
 
