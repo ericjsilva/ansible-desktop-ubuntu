@@ -79,7 +79,7 @@ apm install open-in-browser
 
 echo "\033[0;32m Installing PHP projects.......\033[0m"
 alias_exists="$(grep -n stem.test /etc/hosts | cut -f1 -d:)"
-if [ ! -z alias_exists]; then
+if [ ! -z "$alias_exists" ]; then
     sudo sed -i "3i127.0.0.1 stem.test" /etc/hosts
 fi
 
