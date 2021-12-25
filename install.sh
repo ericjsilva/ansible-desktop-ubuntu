@@ -77,6 +77,11 @@ apm install autoclose-html-plus
 apm install highlight-selected
 apm install open-in-browser
 
+echo "\033[0;32m Installing PHP projects.......\033[0m"
+alias_exists="$(grep -n stem.dev /etc/hosts | cut -f1 -d:)"
+if [ ! -z alias_exists]; then
+    sudo sed -i "3i127.0.0.1 stem.dev" /etc/hosts
+fi
 
 echo "\033[0;32m Installing PHP projects.......\033[0m"
 if [ ! -d $HOME/php ]; then
